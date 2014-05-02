@@ -1,0 +1,21 @@
+
+[emacs24-starter-kit]
+checkout = git clone 'git@github.com:rfnash/emacs24-starter-kit.git' 'emacs24-starter-kit' && git remote add upstream 'https://github.com/eschulte/emacs24-starter-kit.git'
+push = git push -f "$@"
+update = git pull "$@" && git fetch upstream && git rebase upstream/master
+
+[prelude]
+checkout = git clone 'git@github.com:rfnash/prelude.git' 'prelude' && git remote add upstream 'git://github.com/bbatsov/prelude.git'
+push = git push -f "$@"
+update = git pull "$@" && git fetch upstream && git rebase upstream/master
+
+[prelude/vendor/helm-mu]
+checkout = git clone 'git://github.com/emacs-helm/helm-mu.git' 'helm-mu'
+push = true
+
+[prelude/vendor/mu]
+checkout = git clone 'git://github.com/djcb/mu.git' 'mu'
+push = true
+
+[prelude/personal]
+checkout = git clone 'git@github.com:rfnash/emacs-prelude-personal.git' 'personal'

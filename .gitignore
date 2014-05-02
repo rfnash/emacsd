@@ -1,0 +1,13 @@
+# Repositories managed solely by mr
+prelude/
+emacs24-starter-kit/
+
+# Misc
+abbrev_defs
+newsticker/
+tramp
+.org-id-locations
+el-get/
+projectile-bookmarks.eld
+url/
+orgcard.txt
