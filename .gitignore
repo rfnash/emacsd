@@ -1,13 +1,16 @@
-# Repositories managed solely by mr
-prelude/
-emacs24-starter-kit/
-
-# Misc
-abbrev_defs
-newsticker/
-tramp
-.org-id-locations
+.emacs.desktop
+.emacs.desktop/
+auto-save-list
+auto-save-list/
+el-get
 el-get/
-projectile-bookmarks.eld
-url/
+emacs24-starter-kit
+emacs24-starter-kit/
 orgcard.txt
+orgcard.txt/
+prelude
+prelude/
+url
+url/
+var
+var/
