@@ -17,5 +17,11 @@ push = true
 checkout = git clone 'git://github.com/djcb/mu.git' 'mu'
 push = true
 
+[prelude/vendor/org-toodledo]
+checkout = git clone 'git@github.com:rfnash/org-toodledo.git' 'org-toodledo' && git remote add upstream 'git://github.com/christopherjwhite/org-toodledo.git'
+push = git push -f "$@"
+update = git pull "$@" && git fetch upstream && git rebase upstream/master
+
+
 [prelude/personal]
 checkout = git clone 'git@github.com:rfnash/emacs-prelude-personal.git' 'personal'
