@@ -25,3 +25,6 @@ update = git pull "$@" && git fetch upstream && git rebase upstream/master
 
 [prelude/personal]
 checkout = git clone 'git@github.com:rfnash/emacs-prelude-personal.git' 'personal'
+
+[emacs-live]
+checkout = git clone 'https://github.com/overtone/emacs-live.git' 'emacs-live'
