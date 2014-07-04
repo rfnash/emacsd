@@ -29,3 +29,6 @@ checkout = git clone 'git@github.com:rfnash/emacs-prelude-personal.git' 'persona
 [emacs-live]
 checkout = git clone 'https://github.com/overtone/emacs-live.git' 'emacs-live'
 push = true
+
+[org-mode]
+checkout = git clone 'git://orgmode.org/org-mode.git' 'org-mode'
