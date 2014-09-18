@@ -33,3 +33,4 @@ push = true
 [org-mode]
 checkout = git clone 'git://orgmode.org/org-mode.git' 'org-mode'
 push = true
+update = true
