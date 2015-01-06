@@ -34,3 +34,9 @@ push = true
 checkout = git clone 'git://orgmode.org/org-mode.git' 'org-mode'
 push = true
 update = true
+
+[packed]
+checkout = git clone 'https://github.com/tarsius/packed.git' 'packed'
+
+[auto-compile]
+checkout = git clone 'https://github.com/tarsius/auto-compile.git' 'auto-compile'

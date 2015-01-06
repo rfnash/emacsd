@@ -2,6 +2,7 @@
 /.emacs.desktop/
 /.org-id-locations
 /RFC/
+/auto-compile/
 /auto-save-list/
 /el-get/
 /emacs-live/
@@ -9,6 +10,7 @@
 /newsticker/
 /org-mode/
 /orgcard.txt
+/packed/
 /prelude/
 /projectile-bookmarks.eld
 /request/
