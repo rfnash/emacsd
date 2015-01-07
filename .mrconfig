@@ -37,6 +37,8 @@ update = true
 
 [packed]
 checkout = git clone 'https://github.com/tarsius/packed.git' 'packed'
+push = true
 
 [auto-compile]
 checkout = git clone 'https://github.com/tarsius/auto-compile.git' 'auto-compile'
+push = true
