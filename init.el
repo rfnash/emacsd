@@ -3,6 +3,7 @@
 ;             (expand-file-name "auto-compile"
 ;                               (file-name-directory load-file-name)))
 (add-to-list 'load-path "~/.emacs.d/packed")
+(add-to-list 'load-path "~/.emacs.d/dash.el")
 (add-to-list 'load-path "~/.emacs.d/auto-compile")
 (setq load-prefer-newer t)
 (require 'auto-compile)
