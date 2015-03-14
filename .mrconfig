@@ -46,3 +46,19 @@ push = true
 [dash.el]
 checkout = git clone 'git://github.com/magnars/dash.el.git' 'dash.el'
 push = true
+
+[paxedit]
+checkout = git clone 'https://github.com/promethial/paxedit.git' 'paxedit'
+push = true
+
+[Memacs]
+checkout = git clone 'https://github.com/novoid/Memacs.git' 'Memacs'
+push = true
+
+[ergoemacs-mode]
+checkout = git clone 'https://github.com/ergoemacs/ergoemacs-mode.git' 'ergoemacs-mode'
+push = true
+
+[ergoemacs]
+checkout = git clone 'https://code.google.com/p/ergoemacs/' 'ergoemacs'
+push = true
