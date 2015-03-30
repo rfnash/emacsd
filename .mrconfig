@@ -2,12 +2,12 @@
 [emacs24-starter-kit]
 checkout = git clone 'git@github.com:rfnash/emacs24-starter-kit.git' 'emacs24-starter-kit' && git remote add upstream 'https://github.com/eschulte/emacs24-starter-kit.git'
 push = git push -f "$@"
-update = git pull "$@" && git fetch upstream && git rebase upstream/master
+update = git pull "$@" && git fetch upstream && git rebase upstream/master && git push -f "$@"
 
 [prelude]
 checkout = git clone 'git@github.com:rfnash/prelude.git' 'prelude' && git remote add upstream 'git://github.com/bbatsov/prelude.git'
 push = git push -f "$@"
-update = git pull "$@" && git fetch upstream && git rebase upstream/master
+update = git pull "$@" && git fetch upstream && git rebase upstream/master && git push -f "$@"
 
 [prelude/vendor/helm-mu]
 checkout = git clone 'git://github.com/emacs-helm/helm-mu.git' 'helm-mu'
@@ -20,7 +20,7 @@ push = true
 [prelude/vendor/org-toodledo]
 checkout = git clone 'git@github.com:rfnash/org-toodledo.git' 'org-toodledo' && git remote add upstream 'git://github.com/christopherjwhite/org-toodledo.git'
 push = git push -f "$@"
-update = git pull "$@" && git fetch upstream && git rebase upstream/master
+update = git pull "$@" && git fetch upstream && git rebase upstream/master && git push -f "$@"
 
 
 [prelude/personal]
@@ -29,11 +29,6 @@ checkout = git clone 'git@github.com:rfnash/emacs-prelude-personal.git' 'persona
 [emacs-live]
 checkout = git clone 'https://github.com/overtone/emacs-live.git' 'emacs-live'
 push = true
-
-[org-mode]
-checkout = git clone 'git://orgmode.org/org-mode.git' 'org-mode'
-push = true
-update = true
 
 [packed]
 checkout = git clone 'https://github.com/tarsius/packed.git' 'packed'
