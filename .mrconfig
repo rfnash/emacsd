@@ -57,3 +57,6 @@ push = true
 [ergoemacs]
 checkout = git clone 'https://code.google.com/p/ergoemacs/' 'ergoemacs'
 push = true
+
+[prelude/vendor/artbollocks-mode]
+checkout = git clone 'git@github.com:rfnash/artbollocks-mode.git' 'artbollocks-mode'
