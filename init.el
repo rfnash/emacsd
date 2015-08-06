@@ -20,7 +20,7 @@
 
 (require 'org-install)
 (require 'ob-tangle)
-;;(org-babel-load-file "~/.emacs.d/rfnash.org")
+(org-babel-load-file "~/.emacs.d/rfnash.org")
 
 (setq x-select-enable-clipboard t)
 (windmove-default-keybindings 'meta)
