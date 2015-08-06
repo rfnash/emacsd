@@ -56,7 +56,8 @@ Set default font
 #+end_src
 * Use-package
 #+begin_src emacs-lisp
-  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+  (package-initialize nil)
+  ;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
   (package-refresh-contents)
   (unless (package-installed-p 'use-package)
     (package-install 'use-package))
@@ -132,11 +133,53 @@ Set default font
 #+end_src
 * Color Theme
 #+begin_src emacs-lisp
-  (use-package color-theme-solarized
-           :ensure t
-           :config
-           (set-frame-parameter nil 'background-mode 'light)
-           (load-theme 'solarized t))
+  (disable-theme 'zenburn)
+  (use-package color-theme
+    :ensure t
+    :config
+    (use-package color-theme-solarized
+      :ensure t
+      :bind* ("C-x c t" . rfnash-helm-theme)
+      :config
+      (set-frame-parameter nil 'background-mode 'dark)
+      (load-theme 'solarized t)
+
+      (defun rfnash-solarized-light ()
+        (interactive)
+        (disable-theme 'zenburn)
+        (set-frame-parameter nil 'background-mode 'light)
+        (enable-theme 'solarized)
+        (set-face-attribute 'org-scheduled-today nil :foreground "darkgreen" :weight 'normal :slant 'normal) ; orginal color
+        (set-face-attribute 'org-warning nil :weight 'bold)
+        (set-face-attribute 'org-todo nil :inherit 'org-todo))
+
+      (defun rfnash-solarized-dark ()
+        (interactive)
+        (disable-theme 'zenburn)
+        (set-frame-parameter nil 'background-mode 'dark)
+        (enable-theme 'solarized)
+        (set-face-attribute 'org-scheduled-today nil :foreground "#4df946" :weight 'normal :slant 'normal)
+        (set-face-attribute 'org-warning nil :weight 'bold)
+        ;; TODO: Doesn't show up while highlighted (point is on same line)
+        (set-face-attribute 'org-todo nil :inverse-video t))
+
+      (defun rfnash-zenburn ()
+        (interactive)
+        (disable-theme 'solarized)
+        (enable-theme 'zenburn)
+        ;; Colors from habit grid
+        (set-face-attribute 'org-warning nil :foreground "firebrick" :weight 'bold)
+        (set-face-attribute 'org-upcoming-deadline nil :foreground "darkgoldenrod"))
+
+      (defun rfnash-helm-theme ()
+        "helm interface to let my chose one of my customized themes"
+        (interactive)
+        (helm :sources `(
+                         ((name . "My colorthemes")
+                          (candidates . (("zenburn" . rfnash-zenburn)
+                                         ("solarized-light" . rfnash-solarized-light)
+                                         ("solarized-dark" . rfnash-solarized-dark)))
+                          (action . (("Apply Theme" . (lambda (x) (apply x ())))))))))))
 #+end_src
 * Org Mode
 ** Org
@@ -145,6 +188,7 @@ Set default font
     :load-path "/usr/share/emacs/24.5/lisp/org/"
     :mode ("\\.org\\'" . org-mode)
     :bind (("C-c l" . org-store-link)
+           ("C-c a" . org-agenda)
            ("C-c c" . org-capture)
            ("C-c b" . org-iswitchb)
            ("C-c F" . oog))
@@ -166,7 +210,6 @@ Set default font
 ** org-agenda
 #+begin_src emacs-lisp
   (use-package org-agenda
-    :bind ("C-c a" . org-agenda)
     :config
     (setq org-agenda-columns-add-appointments-to-effort-sum t
         org-agenda-dim-blocked-tasks t
@@ -310,7 +353,7 @@ Set default font
     (define-key helm-command-map (kbd "C-c w") 'helm-wikipedia-suggest)
     (define-key helm-command-map (kbd "SPC")   'helm-all-mark-rings)
 
-    (setq ido-ignore-buffers helm-boring-buffer-regexp-list)
+    ;; (setq ido-ignore-buffers helm-boring-buffer-regexp-list)
 
     ;; Doesn't override ido for find files, but does for C-h f, so perfect
     (helm-mode 1)
@@ -375,3 +418,16 @@ Set default font
     (eval-after-load 'flycheck '(diminish 'flycheck-mode))
     (eval-after-load 'flyspell '(diminish 'flyspell-mode))
   #+end_src
+* paradox
+   #+begin_src emacs-lisp
+     (use-package paradox
+       :ensure t
+       :config
+       (setq paradox-automatically-star t))
+   #+end_src
+* Emacs Server
+   Start the Emacs server if it isn't already running
+   #+begin_src emacs-lisp
+     (require 'server)
+     (if (not (server-running-p server-name)) (server-start))
+   #+end_src

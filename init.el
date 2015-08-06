@@ -5,7 +5,6 @@
 (add-to-list 'load-path "~/.emacs.d/packed")
 (add-to-list 'load-path "~/.emacs.d/dash.el")
 (add-to-list 'load-path "~/.emacs.d/auto-compile")
-(add-to-list 'load-path "~/.emacs.d/use-package")
 (setq load-prefer-newer t)
 (require 'auto-compile)
 (auto-compile-on-load-mode 1)
