@@ -133,43 +133,44 @@ Set default font
 #+end_src
 * Color Theme
 #+begin_src emacs-lisp
-  (disable-theme 'zenburn)
-  (use-package color-theme
-    :ensure t
-    :config
-    (use-package color-theme-solarized
+    (disable-theme 'zenburn)
+    (use-package color-theme
       :ensure t
-      :bind* ("C-x c t" . rfnash-helm-theme)
       :config
-      (set-frame-parameter nil 'background-mode 'dark)
-      (load-theme 'solarized t)
-
-      (defun rfnash-solarized-light ()
-        (interactive)
-        (disable-theme 'zenburn)
-        (set-frame-parameter nil 'background-mode 'light)
-        (enable-theme 'solarized)
-        (set-face-attribute 'org-scheduled-today nil :foreground "darkgreen" :weight 'normal :slant 'normal) ; orginal color
-        (set-face-attribute 'org-warning nil :weight 'bold)
-        (set-face-attribute 'org-todo nil :inherit 'org-todo))
-
-      (defun rfnash-solarized-dark ()
-        (interactive)
-        (disable-theme 'zenburn)
+      (use-package color-theme-solarized
+        :ensure t
+        :bind* ("C-x c t" . rfnash-helm-theme)
+        :demand
+        :config
         (set-frame-parameter nil 'background-mode 'dark)
-        (enable-theme 'solarized)
-        (set-face-attribute 'org-scheduled-today nil :foreground "#4df946" :weight 'normal :slant 'normal)
-        (set-face-attribute 'org-warning nil :weight 'bold)
-        ;; TODO: Doesn't show up while highlighted (point is on same line)
-        (set-face-attribute 'org-todo nil :inverse-video t))
+        (load-theme 'solarized t)
 
-      (defun rfnash-zenburn ()
-        (interactive)
-        (disable-theme 'solarized)
-        (enable-theme 'zenburn)
-        ;; Colors from habit grid
-        (set-face-attribute 'org-warning nil :foreground "firebrick" :weight 'bold)
-        (set-face-attribute 'org-upcoming-deadline nil :foreground "darkgoldenrod"))
+        (defun rfnash-solarized-light ()
+          (interactive)
+          (disable-theme 'zenburn)
+          (set-frame-parameter nil 'background-mode 'light)
+          (enable-theme 'solarized)
+          (set-face-attribute 'org-scheduled-today nil :foreground "darkgreen" :weight 'normal :slant 'normal) ; orginal color
+          (set-face-attribute 'org-warning nil :weight 'bold)
+          (set-face-attribute 'org-todo nil :inherit 'org-todo))
+
+        (defun rfnash-solarized-dark ()
+          (interactive)
+          (disable-theme 'zenburn)
+          (set-frame-parameter nil 'background-mode 'dark)
+          (enable-theme 'solarized)
+          (set-face-attribute 'org-scheduled-today nil :foreground "#4df946" :weight 'normal :slant 'normal)
+          (set-face-attribute 'org-warning nil :weight 'bold)
+          ;; TODO: Doesn't show up while highlighted (point is on same line)
+          (set-face-attribute 'org-todo nil :inverse-video t))
+
+        (defun rfnash-zenburn ()
+          (interactive)
+          (disable-theme 'solarized)
+          (enable-theme 'zenburn)
+          ;; Colors from habit grid
+          (set-face-attribute 'org-warning nil :foreground "firebrick" :weight 'bold)
+          (set-face-attribute 'org-upcoming-deadline nil :foreground "darkgoldenrod")))
 
       (defun rfnash-helm-theme ()
         "helm interface to let my chose one of my customized themes"
@@ -1058,6 +1059,7 @@ Tested with SWI-Prolog 5.6.55 + Emacs 21.2, 22.3 and 23.0.92.2.
 *** [[http://orgmode.org/worg/org-contrib/][org-contrib]]
    Require all of the org-mode modules that I use.
    #+begin_src emacs-lisp :tangle no
+     (add-to-list 'load-path "~/.emacs.d/org-mode/contrib/lisp")
      (require 'org-annotate-file)
      (require 'org-bbdb)
      (require 'org-bibtex)                   ; export bibtex fragments(require '
