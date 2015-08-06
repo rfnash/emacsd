@@ -49,7 +49,10 @@
 ;; (require 'diminish)                     ; if you use :diminish
 (require 'bind-key)                     ; if you use any :bind variant
 
+(package-initialize nil)
+
 (use-package org
+  :load-path "/usr/share/emacs/24.5/lisp/org/"
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-c l" . org-store-link)
 	 ("C-c c" . org-capture)
