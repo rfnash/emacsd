@@ -179,12 +179,12 @@ Set default font
                           (candidates . (("zenburn" . rfnash-zenburn)
                                          ("solarized-light" . rfnash-solarized-light)
                                          ("solarized-dark" . rfnash-solarized-dark)))
-                          (action . (("Apply Theme" . (lambda (x) (apply x ())))))))))))
+                          (action . (("Apply Theme" . (lambda (x) (apply x ()))))))))))
 #+end_src
 * Org Mode
 #+begin_src emacs-lisp
   (use-package org
-    :load-path "/usr/share/emacs/24.5/lisp/org/"
+    :load-path "~/.emacs.d/org-mode/lisp"
     :mode ("\\.org\\'" . org-mode)
     :bind (("C-c l" . org-store-link)
            ("C-c a" . org-agenda)
