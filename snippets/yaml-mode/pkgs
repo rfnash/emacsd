@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: pkgs
+# key: pkgs
+# binding: direct-keybinding
+# --
+- name: $0
+      pacman: pkg={{item}} state=installed
+      sudo: True
+      tags: [packages]
+      with_items:
